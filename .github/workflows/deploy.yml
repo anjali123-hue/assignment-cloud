@@ -1,0 +1,24 @@
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Initialize Terraform
+        run: echo "terraform init"
+
+      - name: Validate Terraform
+        run: echo "terraform validate"
+
+      - name: Plan Infrastructure
+        run: echo "terraform plan"
+
+      - name: Apply Infrastructure
+        run: echo "terraform apply -auto-approve"
